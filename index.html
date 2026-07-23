@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!-- saved from url=(0074)file:///D:/Usuarios/clucero/Downloads/reporte-capacitacion-epec%20(2).html -->
+<!-- saved from url=(0074)file:///D:/Usuarios/clucero/Downloads/reporte-capacitacion-epec%20(3).html -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-<title>Detalle de Convenios — EPEC Capacitación</title>
+<title>EPEC · Reporte Económico de Capacitación</title>
 <meta name="description" content="Reporte económico y calculadora de convenios de capacitación — EPEC RRHH">
 
 <!-- PWA / instalable -->
@@ -18,9 +18,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link href="./Detalle de Convenios — EPEC Capacitación_files/css2" rel="stylesheet">
+<link href="./EPEC · Reporte Económico de Capacitación_files/css2" rel="stylesheet">
 
-<script src="./Detalle de Convenios — EPEC Capacitación_files/chart.umd.min.js.descargar"></script>
+<script src="./EPEC · Reporte Económico de Capacitación_files/chart.umd.min.js.descargar"></script>
 <!-- Firebase se carga de forma dinámica y controlada desde el script principal, más abajo -->
 
 <style>
@@ -276,7 +276,7 @@ tfoot td{padding:10px 12px; font-weight:700; background:#f7fafa; border-top:2px 
   .cal-grid{grid-template-columns:1fr;}
 }
 </style>
-<script src="./Detalle de Convenios — EPEC Capacitación_files/firebase-app-compat.js.descargar"></script><script src="./Detalle de Convenios — EPEC Capacitación_files/firebase-database-compat.js.descargar"></script></head>
+<script src="./EPEC · Reporte Económico de Capacitación_files/firebase-app-compat.js.descargar"></script><script src="./EPEC · Reporte Económico de Capacitación_files/firebase-database-compat.js.descargar"></script></head>
 <body>
 
 <!-- ============ HEADER ============ -->
@@ -328,7 +328,7 @@ tfoot td{padding:10px 12px; font-weight:700; background:#f7fafa; border-top:2px 
   <button onclick="Nav.go(&#39;convenios&#39;); Nav.closeDD();">📋 Ver todos los convenios<span class="dd-desc">Listado, filtros y edición</span></button>
   <button onclick="Nav.go(&#39;convenios&#39;); openConvenioModal(); Nav.closeDD();">➕ Cargar nuevo convenio<span class="dd-desc">Alta desde enero 2026</span></button>
 </div>
-<div class="dropdown" id="dd-reportes" style="top: 131.75px; left: 808.312px;">
+<div class="dropdown" id="dd-reportes">
   <button onclick="Reports.resumenEjecutivo(); Nav.closeDD();">🧾 Resumen ejecutivo<span class="dd-desc">KPIs + gráficos del panel</span></button>
   <button onclick="Reports.detalleConvenios(); Nav.closeDD();">📑 Detalle de convenios<span class="dd-desc">Tabla completa con costos</span></button>
   <button onclick="Reports.avancePresupuesto(); Nav.closeDD();">📊 Avance de presupuesto<span class="dd-desc">Consumo mensual anual</span></button>
@@ -346,7 +346,7 @@ tfoot td{padding:10px 12px; font-weight:700; background:#f7fafa; border-top:2px 
   <section class="view" id="view-dashboard">
     <div class="section-title">
       <h2>Panel General</h2>
-      <span class="sub" id="dashUpdated">Actualizado: 23/7/2026, 12:57:49</span>
+      <span class="sub" id="dashUpdated">Actualizado: 23/7/2026, 01:17:01</span>
     </div>
 
     <div class="kpi-grid" id="kpiGrid">
@@ -714,27 +714,27 @@ tfoot td{padding:10px 12px; font-weight:700; background:#f7fafa; border-top:2px 
     </div>
 
     <div class="card" style="margin-bottom:16px;">
-      <h3>Avance general <span id="presAnioLabel" style="color:var(--muted); font-weight:400;">· 2026</span></h3>
+      <h3>Avance general <span id="presAnioLabel" style="color:var(--muted); font-weight:400;"></span></h3>
       <div style="display:flex; justify-content:space-between; font-size:12.5px; color:var(--muted); margin-bottom:6px;">
-        <span id="presEjecLabel">Ejecutado + comprometido: $277.626.000</span>
-        <span id="presPctLabel">100%</span>
-        <span id="presTotalLabel">Presupuesto: $277.626.000</span>
+        <span id="presEjecLabel">Ejecutado: $0</span>
+        <span id="presPctLabel">0%</span>
+        <span id="presTotalLabel">Presupuesto: $0</span>
       </div>
-      <div class="progress-track"><div class="progress-fill over" id="presBarFill" style="width: 100%;"></div></div>
-      <div class="card-sub" style="margin-top:8px;" id="presDisponibleLabel">Disponible: $0 (0% del presupuesto sin comprometer)</div>
+      <div class="progress-track"><div class="progress-fill" id="presBarFill" style="width:0%"></div></div>
+      <div class="card-sub" style="margin-top:8px;" id="presDisponibleLabel"></div>
     </div>
 
     <div class="grid-2">
       <div class="card">
         <h3>Ejecución mensual vs. presupuesto mensual</h3>
-        <canvas id="chartPresMensual" height="230" style="display: none;" data-warned="1"></canvas>
-      <div class="empty" style="padding: 20px 10px;"><div class="emoji">📉</div>Gráfico no disponible: la librería de gráficos no pudo cargar (revisá tu conexión a internet).</div></div>
+        <canvas id="chartPresMensual" height="230"></canvas>
+      </div>
       <div class="card">
         <h3>Detalle por mes</h3>
         <div class="table-wrap" style="max-height:300px; overflow-y:auto;">
           <table>
             <thead><tr><th>Mes</th><th>Asignado</th><th>Ejecutado</th><th>% Consumo</th></tr></thead>
-            <tbody id="tblPresMensual"><tr><td>Enero</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr><tr><td>Febrero</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr><tr><td>Marzo</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr><tr><td>Abril</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr><tr><td>Mayo</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr><tr><td>Junio</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr><tr><td>Julio</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr><tr><td>Agosto</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr><tr><td>Septiembre</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr><tr><td>Octubre</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr><tr><td>Noviembre</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr><tr><td>Diciembre</td><td class="mono">$23.135.500</td><td class="mono">$0</td><td>0%</td></tr></tbody>
+            <tbody id="tblPresMensual"></tbody>
           </table>
         </div>
       </div>
@@ -749,11 +749,7 @@ tfoot td{padding:10px 12px; font-weight:700; background:#f7fafa; border-top:2px 
     </div>
     <div class="card">
       <div class="gantt-wrap">
-        <div class="gantt" id="ganttChart"><div class="gantt-row head"><div>Curso</div><div>Ene</div><div>Feb</div><div>Mar</div><div>Abr</div><div>May</div><div>Jun</div><div>Jul</div><div>Ago</div><div>Sep</div><div>Oct</div><div>Nov</div><div>Dic</div></div>
-        <div class="card" style="margin-top:14px; background:var(--amber-light); border-color:#eacf9f;">
-          <h3 style="color:#8a5c1c;">⏳ 12 curso(s) sin mes de inicio asignado</h3>
-          <div class="card-sub">Editá cada convenio en la pestaña "Convenios" para asignarle un mes de inicio (desde enero 2026) y que aparezca en el Gantt, el Calendario y el Mapa de Calor.</div>
-        </div></div>
+        <div class="gantt" id="ganttChart"></div>
       </div>
     </div>
   </section>
@@ -764,67 +760,7 @@ tfoot td{padding:10px 12px; font-weight:700; background:#f7fafa; border-top:2px 
       <h2>Calendario de Capacitaciones</h2>
       <span class="sub" id="calAnioLabel">2026</span>
     </div>
-    <div class="cal-grid" id="calGrid">
-        <div class="cal-month" onclick="Calendario.detalle(0)">
-          <h4>Enero</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div>
-        <div class="cal-month" onclick="Calendario.detalle(1)">
-          <h4>Febrero</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div>
-        <div class="cal-month" onclick="Calendario.detalle(2)">
-          <h4>Marzo</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div>
-        <div class="cal-month" onclick="Calendario.detalle(3)">
-          <h4>Abril</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div>
-        <div class="cal-month" onclick="Calendario.detalle(4)">
-          <h4>Mayo</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div>
-        <div class="cal-month" onclick="Calendario.detalle(5)">
-          <h4>Junio</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div>
-        <div class="cal-month" onclick="Calendario.detalle(6)">
-          <h4>Julio</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div>
-        <div class="cal-month" onclick="Calendario.detalle(7)">
-          <h4>Agosto</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div>
-        <div class="cal-month" onclick="Calendario.detalle(8)">
-          <h4>Septiembre</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div>
-        <div class="cal-month" onclick="Calendario.detalle(9)">
-          <h4>Octubre</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div>
-        <div class="cal-month" onclick="Calendario.detalle(10)">
-          <h4>Noviembre</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div>
-        <div class="cal-month" onclick="Calendario.detalle(11)">
-          <h4>Diciembre</h4>
-          <div class="cnt">0 curso(s) inician</div>
-          <div class="cal-dot-row"></div>
-        </div></div>
+    <div class="cal-grid" id="calGrid"></div>
   </section>
 
   <!-- ============ MAPA DE CALOR ============ -->
@@ -835,7 +771,7 @@ tfoot td{padding:10px 12px; font-weight:700; background:#f7fafa; border-top:2px 
     </div>
     <div class="card">
       <div class="heat-wrap">
-        <table class="heat-table" id="heatTable"><thead><tr><th>Área</th><th>Ene</th><th>Feb</th><th>Mar</th><th>Abr</th><th>May</th><th>Jun</th><th>Jul</th><th>Ago</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dic</th></tr></thead><tbody><tr><td class="heat-rowlabel">Generación / Centrales</td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td></tr><tr><td class="heat-rowlabel">Distribución</td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td></tr><tr><td class="heat-rowlabel">Transmisión</td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td></tr><tr><td class="heat-rowlabel">Operación / Teleoperación</td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td></tr><tr><td class="heat-rowlabel">Distribución / Transmisión</td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td></tr><tr><td class="heat-rowlabel">Legales y Administración</td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td><td><div class="heat-cell" style="background:#f2f6f6" title="$0"></div></td></tr></tbody></table>
+        <table class="heat-table" id="heatTable"></table>
       </div>
     </div>
   </section>
