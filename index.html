@@ -752,8 +752,10 @@ async function iniciarFirebase(){
     if(typeof firebase === "undefined") throw new Error("firebase-app cargó pero no expuso el objeto global esperado");
     await cargarScript("https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js");
     if(typeof firebase.database !== "function") throw new Error("firebase-database no expuso el objeto esperado");
+    await cargarScript("https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js");
 
     firebase.initializeApp(firebaseConfig);
+    await firebase.auth().signInAnonymously();
     const db = firebase.database();
     refConvenios = db.ref("reportePresupuesto/convenios");
     refConfig = db.ref("reportePresupuesto/config");
